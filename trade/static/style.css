@@ -1,0 +1,240 @@
+.signal-header{
+    text-align: center;
+    background-color: #1E90FF;
+    color: white;
+    padding: 10px;
+    font-size: 22px;
+}
+#reportheader{
+    margin-left: 30px;
+    background-color: #1E90FF;
+    color: white;
+    padding: 10px;
+    font-size: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+.h4-signal{
+    font-size: 18px;
+    margin: 15px;
+}
+.trade-signal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F0F0F0;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+.trade-signal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F0F0F0;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.flag {
+  /* Adjust width and height as needed */
+  width: 30px;
+  height: 20px;
+  /* Add any additional styling for the flag */
+}
+
+.currency {
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actionbuy {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #007bff;
+
+}
+.actionsell{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: red;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.close-button {
+  align-self: flex-start;
+}
+.close-btn{
+    border:none;
+    color: red;
+    font-size: 18px;
+}
+.active-btn{
+    border:none;
+    color: green;
+    font-size: 18px;
+}
+.stop-loss {
+  margin-top: 10px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 15px;
+}
+.profit{
+    margin-top: 10px;
+    border: 1px solid black;
+    background-color: white;
+    padding: 15px;
+
+}
+
+.trade-button {
+  text-align: right;
+
+
+}
+.trade-btn:hover{
+    cursor: pointer;
+}
+.verticalline {
+    width: 2px;
+    height: 100%;
+    background-color: #000; /* Change the color as desired */
+    margin-left: 5px; /* Adjust the margin as needed */
+    margin-right: 5px; /* Adjust the margin as needed */
+  }
+  
+.trade-btn{
+    background-color: #1E90FF;
+    padding: 15px;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    height: 1.5cm;
+
+}
+.premium-btn{
+    background-color: #00FF00;
+    padding: 15px;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    height: 1.5cm;
+    font-weight: 400;
+    cursor:pointer;
+    
+}
+
+
+
+
+/* Center the login form */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* Style the login form fields */
+  .login-form input[type="text"],
+  .login-form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+  }
+  
+  /* Style the login button */
+  .login-form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Style the error message */
+  .login-form .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .section-name {
+    font-weight: bold;
+  }
+  
+  .section-value {
+    font-size: 18px;
+  }
+  
+  .entry-price-name {
+    /* Custom styling for Entry Price name */
+  }
+  
+  .entry-price-value {
+    margin-top: 10px;
+    border: 1px solid black;
+    background-color: white;
+    padding: 15px;
+    width: 100px;
+  }
+  .entry-price-premium{
+    margin-top: 10px;
+    border: 0.5px black;
+    background-color: white;
+    padding: 15px;
+    width: 100px;
+    color:grey;
+
+  }
+  .txtpremium{
+    margin-top: 10px;
+    border: 0.5px black;
+    background-color: white;
+    padding: 15px;
+    width: 100px;
+    color:grey;
+
+  }
+  
+  .stop-loss-name {
+    /* Custom styling for Stop Loss name */
+  }
+  
+  .stop-loss-value {
+    margin-top: 10px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 15px;
+  width: 100px;
+  }
+  
+  .take-profit-name {
+    /* Custom styling for Take Profit name */
+  }
+  
+  .take-profit-value {
+    margin-top: 10px;
+    border: 1px solid black;
+    background-color: white;
+    padding: 15px;
+    width: 100px;
+  }
+  

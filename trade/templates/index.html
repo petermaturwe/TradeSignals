@@ -1,0 +1,117 @@
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<script src="https://kit.fontawesome.com/cdad33ee99.js" crossorigin="anonymous"></script>
+<h3 class="signal-header">Signal feed</h3>
+<h4 class="h4-signal">Signals</h4>
+<div class="trade-signals-container">
+    {% for trade_signal in trade_signals %}
+    <div class="trade-signal">
+      <div class="signal-meta">
+        <div class="timestamp">
+          {{ trade_signal.created_at|date:'m-d H:i:s' }} (UTC)
+        </div>
+
+      </div>
+      <div class="currency">{{ trade_signal.currency }}</div>
+      <div class="action-container">
+        {% if trade_signal.buy %}
+        <div class="action-buy">Buy</div>
+        {% endif %}
+        {% if trade_signal.sell %}
+        <div class="action-sell">Sell</div>
+        {% endif %}
+      </div>
+      <div class="close-button">
+        {% if trade_signal.active %}
+        <button class="active-btn">Sell</button>
+        {% else %}
+        <button class="close-btn">Closed</button>
+        {% endif %}
+      </div>
+
+      <div class="verticalline"></div>
+  
+      {% if trade_signal.entry_price_visible %}
+      <div class="section">
+        <div class="section-name entry-price-name">Entry Price</div>
+        <div class="section-value entry-price-value">{{ trade_signal.entry_price|floatformat:"-4"}}</div>
+      </div>
+      {% else %}
+      <div class="section">
+        <div class="section-name entry-price-name">Entry Price</div>
+        {% if user.is_authenticated %}
+        <div class="section-value entry-price-value">{{ trade_signal.entry_price|floatformat:"-4"}}</div>
+        {% else %}
+        <div class="section-value entry-price-premium">Premium</div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+       
+      {% if trade_signal.stop_loss_visible %}
+      <div class="section">
+        <div class="section-name stop-loss-name">Stop Loss</div>
+        <div class="section-value stop-loss-value">{{ trade_signal.stop_loss|floatformat:"-4" }}</div>
+      </div>
+      {% else %}
+      <div class="section">
+        <div class="section-name stop-loss-name">Stop Loss</div>
+        {% if user.is_authenticated %}
+        <div class="section-value stop-loss-value">{{ trade_signal.stop_loss|floatformat:"-4" }}</div>
+        {% else %}
+        <div class="section-value entry-price-premium">Premium</div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+
+      {% if trade_signal.take_profit_visible %}
+      <div class="section">
+        <div class="section-name take-profit-name">Take Profit</div>
+        <div class="section-value take-profit-value">{{ trade_signal.take_profit|floatformat:"-4" }}</div>
+      </div>
+      {% else %}
+      <div class="section">
+        <div class="section-name take-profit-name">Take Profit</div>
+        {% if user.is_authenticated %}
+        <div class="section-value take-profit-value">{{ trade_signal.take_profit|floatformat:"-4" }}</div>
+        {% else %}
+        <div class="section-value entry-price-premium">Premium</div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+  
+
+  
+
+
+      {% if user.is_authenticated %}
+      <div class="trade-button">
+        <a href="{% url 'payment' %}">
+        <button class="trade-btn">Trade Now</button>
+    </a>
+      </div>
+      {% else %}
+      {% if trade_signal.trade_now_visible %}
+      <div class="trade-button">
+        <a href="{% url 'payment' %}">
+        <button class="trade-btn">Trade Now</button>
+    </a>
+      </div>
+      {% else %}
+      <div class="trade-button">
+        <a href="{% url 'payment' %}">
+            <button class="premium-btn">PREMIUM</button>
+          </a>
+      </div>
+      {% endif %}
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  
+{% endblock %}
