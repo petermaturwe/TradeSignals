@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <script src="https://kit.fontawesome.com/cdad33ee99.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/forex/">Forex Signals</a></li>
+            <li><a href="/stock/">Stock Signals</a></li>
+            <li><a href="/crypto/">Cryptocurrency Signals</a></li>
+            <li class="dropdown">
+                <a href="#">Forex Courses &#9662;</a>
+                <ul class="dropdown-menu">
+                    <li><a href="/course1/">Course 1</a></li>
+                    <li><a href="/course2/">Course 2</a></li>
+                    <li><a href="/course3/">Course 3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    {% block content %}
+    <!-- Content of the child templates will be placed here -->
+    {% endblock %}
+</body>
+</html>

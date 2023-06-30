@@ -18,6 +18,10 @@
     font-size: 18px;
     margin: 15px;
 }
+.trade-signals-container{
+  margin-left: 100px;
+  margin-right: 100px;
+}
 .trade-signal {
     display: flex;
     align-items: center;
@@ -45,6 +49,7 @@
 
 .currency {
   font-weight: bold;
+  font-size: 18px;
 }
 
 .actions {
@@ -53,18 +58,19 @@
   align-items: center;
 }
 
-.actionbuy {
+.action-buy {
   margin-top: 5px;
   margin-bottom: 5px;
   color: #007bff;
+  font-size: 18px;
 
 }
-.actionsell{
+.action-sell{
     margin-top: 5px;
     margin-bottom: 5px;
     color: red;
     font-weight: 300;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .close-button {

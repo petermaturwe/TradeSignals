@@ -6,6 +6,13 @@ def default_created_at():
     return timezone.now()
     
 class TradeSignal(models.Model):
+    CATEGORIES = (
+        ('forex', 'Forex'),
+        ('stock', 'Stock'),
+        ('cryptocurrency', 'Cryptocurrency'),
+    )
+
+
     currency = models.CharField(max_length=50)
     buy = models.BooleanField(default=False)
     sell = models.BooleanField(default=False)
@@ -19,6 +26,7 @@ class TradeSignal(models.Model):
     take_profit_visible = models.BooleanField(default=False)
     trade_now_visible = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=default_created_at)
+    category = models.CharField(max_length=20, choices=CATEGORIES, default='forex')
 
     def get_current_time(self):
         return timezone.localtime(timezone.now())

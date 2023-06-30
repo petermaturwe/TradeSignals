@@ -23,5 +23,6 @@ urlpatterns = [
     path('', include("trade.urls")),
     
     
+    
 
 ]
