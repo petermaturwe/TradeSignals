@@ -4,30 +4,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Trade Signals</title>
     <link rel="stylesheet" href="{% static 'base.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/cdad33ee99.js" crossorigin="anonymous"></script>
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+      /* Styles for the mobile navigation */
+     /* Styles for the desktop navigation */
+  @media (min-width: 768px) {
+    .mobile-nav {
+      display: none;
+    }
+  }
+
+  /* Styles for the mobile navigation */
+  @media (max-width: 767px) {
+
+    .desktop-nav {
+      display: none;
+    }
+    
+    .mobile-nav {
+      display: block;
+    }
+    
+    .menu {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .menu li {
+      position: relative;
+      list-style: none;
+    }
+    
+    .menu li a {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    
+    .menu li a::after {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 5px 0 5px;
+      border-color: #555 transparent transparent transparent;
+      margin-left: 5px;
+    }
+    
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background-color: #fff;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    
+    /* Active link style */
+    .menu li.active a {
+      color: #ff0000;
+    }
+    
+    /* Horizontal line style */
+    .menu li:not(:last-child) a::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: #ccc;
+      margin-top: 5px;
+    }
+    
+    .menu li:not(:first-child) a::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: #ccc;
+      margin-bottom: 5px;
+    }
+    
+    /* Additional styles for dropdown functionality */
+    .menu li.dropdown:hover > .dropdown-menu {
+      display: block;
+    }
+    
+    .menu .dropdown-menu li {
+      display: block;
+    }
+    
+    .menu .dropdown-menu li a {
+      padding: 5px 10px;
+      color: #333;
+      font-weight: normal;
+    }
+    
+    .menu .dropdown-menu li a:hover {
+      background-color: #f8f8f8;
+    }
+    
+    /* Dropdown arrow icon */
+    .menu li.dropdown > a::after {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent transparent #333;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    
+    } 
+  
+</style>
+    
+
+  </head>
 <body>
-    <nav>
-        <ul class="menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/forex/">Forex Signals</a></li>
-            <li><a href="/stock/">Stock Signals</a></li>
-            <li><a href="/crypto/">Cryptocurrency Signals</a></li>
-            <li class="dropdown">
-                <a href="#">Forex Courses &#9662;</a>
-                <ul class="dropdown-menu">
-                    <li><a href="/course1/">Course 1</a></li>
-                    <li><a href="/course2/">Course 2</a></li>
-                    <li><a href="/course3/">Course 3</a></li>
-                </ul>
-            </li>
+  <!-- Desktop Navigation -->
+<nav class="desktop-nav">
+  <ul class="menu">
+            <li id="home"><a href="/">Home</a></li>
+            <li id="forex"><a href="#" onclick="showForexSignals(); return false;">Forex Signals</a></li>
+            <li id="stock"><a href="#" onclick="showStockSignals(); return false;">Stock Signals</a></li>
+            <li id="crypto"><a href="#" onclick="showCryptoSignals(); return false;">Crypto Signals</a></li>
+            <li><a href="https://koji.to/k/8WuD">Forex Course</a></li>
+            <li><a href="https://koji.to/k/8Y99">Forex Strategies</a></li>
         </ul>
     </nav>
+
+    <!-- Mobile Navigation -->
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <nav>
+    <ul class="menu">
+      <li id="home"><a href="/">Home</a></li>
+      <li id="mobile-signal" class="dropdown">
+        <a href="#">Signals</a>
+        <ul class="dropdown-menu">
+          <li><a href="#" onclick="showForexSignals(); return false;">Forex Signals</a></li>
+          <li><a href="#" onclick="showStockSignals(); return false;">Stock Signals</a></li>
+          <li><a href="#" onclick="showCryptoSignals(); return false;">Crypto Signals</a></li>
+        </ul>
+      </li>
+      <li><a href="https://koji.to/k/8WuD">Courses</a></li>
+      
+    </ul>
+  </nav>
+</div>
+
 
     {% block content %}
     <!-- Content of the child templates will be placed here -->
     {% endblock %}
+    <script>
+    window.onload = function() {
+        var currentLocation = window.location.pathname;
+        var menuLinks = document.querySelectorAll("nav ul.menu li a");
+      
+        for (var i = 0; i <sc menuLinks.length; i++) {
+          var href = menuLinks[i].getAttribute("href");
+          if (href === currentLocation) {
+            menuLinks[i].classList.add("active");
+            break;
+          }
+        }
+      };
+    </script>
+      
 </body>
 </html>

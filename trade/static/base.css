@@ -1,17 +1,19 @@
 header {
     background-color: #f2f2f2;
     padding: 10px;
-    text-align: center; /* Center the header */
+    text-align: center;
   }
   
   nav ul.menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    text-align: center;
   }
   
   nav ul.menu li {
     display: inline-block;
+    text-align: center;
   }
   
   nav ul.menu li a {
@@ -22,8 +24,19 @@ header {
     border-radius: 5px; /* Add border radius */
   }
   
+  nav ul.menu li a#home.active,
+  nav ul.menu li a#forex.active,
+  nav ul.menu li a#stock.active,
+  nav ul.menu li a#crypto.active {
+    background-color: blue; /* Define the style for the active link */
+  }
+  
   nav ul.menu li:hover a {
-    background-color: #ccc;
+  
+    border: 0.5px solid white;
+    background-color: grey;
+    color: white;
+    
   }
   
   nav ul.menu li.dropdown:hover .dropdown-menu {
@@ -43,11 +56,10 @@ header {
   }
   
   nav ul.menu li .dropdown-menu li a {
-    color: #333;
     text-decoration: none;
   }
   
   nav ul.menu li .dropdown-menu li:hover {
-    background-color: #ccc;
+    background-color: #f9f9f9;
   }
   

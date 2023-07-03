@@ -50,7 +50,7 @@ def stock_signals(request):
 def forex_signals(request):
     forex_signals = TradeSignal.objects.filter(category='forex')
     return render(request, 'forex.html', {'forex_signals': forex_signals})
-
 def crypto_signals(request):
     crypto_signals = TradeSignal.objects.filter(category='crypto')
     return render(request, 'crypto.html', {'crypto_signals': crypto_signals})
+

@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'mobile.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/cdad33ee99.js" crossorigin="anonymous"></script>
 <h3 class="signal-header">Signal feed</h3>
-<h4 class="h4-signal">Signals</h4>
-<div class="trade-signals-container">
+
+<div id="forex-signals-container" class="trade-signals-container">
+  <h4 class="h4-signal">Forex Signals</h4>
   {% for trade_signal in forex_signals %}
     <div class="trade-signal">
+      <div class="column">
       <div class="signal-meta">
         <div class="timestamp">
           {{ trade_signal.created_at|date:'m-d H:i:s' }} (UTC)
@@ -23,6 +29,7 @@
         <div class="action-sell">SELL</div>
         {% endif %}
       </div>
+    </div>
       <div class="close-button">
         {% if trade_signal.active %}
         <button class="active-btn">ACTIVE</button>
@@ -30,6 +37,7 @@
         <button class="close-btn">CLOSED</button>
         {% endif %}
       </div>
+ 
 
      
   
@@ -91,14 +99,14 @@
       {% if user.is_authenticated %}
       <div class="trade-button">
         <a href="{% url 'payment' %}">
-        <button class="trade-btn">Trade Now</button>
+        <button class="trade-butn">Trade Now</button>
     </a>
       </div>
       {% else %}
       {% if trade_signal.trade_now_visible %}
       <div class="trade-button">
         <a href="{% url 'payment' %}">
-        <button class="trade-btn">Trade Now</button>
+        <button class="trade-butn">Trade Now</button>
     </a>
       </div>
       {% else %}
@@ -116,14 +124,16 @@
 
 
   <!--Stock signals-->
+  <div id="stock-signals-container" class="trade-signals-container">
   <h4 class="h4-signal">Stock Signals</h4>
-<div class="trade-signals-container">
   {% for trade_signal in stock_signals %}
     <div class="trade-signal">
+      <div class="column">
       <div class="signal-meta">
         <div class="timestamp">
-          {{ trade_signal.created_at|date:'m-d H:i:s' }} (UTC)
+          {{ trade_signal.created_at|date:'m-d H:i' }}(UTC)
         </div>
+      
 
       </div>
       <div class="currency">{{ trade_signal.currency }}</div>
@@ -134,17 +144,19 @@
         {% if trade_signal.sell %}
         <div class="action-sell">SELL</div>
         {% endif %}
-      </div>
-      <div class="close-button">
-        {% if trade_signal.active %}
-        <button class="active-btn">ACTIVE</button>
-        {% else %}
-        <button class="close-btn">CLOSED</button>
-        {% endif %}
-      </div>
 
+      </div>
      
-  
+      
+    </div>
+    <div class="close-button">
+      {% if trade_signal.active %}
+      <button class="active-btn">ACTIVE</button>
+      {% else %}
+      <button class="close-btn">CLOSED</button>
+      {% endif %}
+    </div>
+    
       {% if trade_signal.entry_price_visible %}
       <div class="section">
         <div class="section-name entry-price-name">Entry Price</div>
@@ -165,19 +177,19 @@
       {% if trade_signal.stop_loss_visible %}
       <div class="section">
         <div class="section-name stop-loss-name">Stop Loss</div>
-        <div class="section-value stop-loss-value">{{ trade_signal.stop_loss|floatformat:"-4" }}</div>
+        <div class="section-value stop-loss-value">{{ trade_signal.stop_loss|floatformat:"-4"}}</div>
       </div>
       {% else %}
       <div class="section">
         <div class="section-name stop-loss-name">Stop Loss</div>
         {% if user.is_authenticated %}
-        <div class="section-value stop-loss-value">{{ trade_signal.stop_loss|floatformat:"-4" }}</div>
+        <div class="section-value stop-loss-value">{{ trade_signal.stop_loss|floatformat:"-4"}}</div>
         {% else %}
         <div class="section-value entry-price-premium">Premium</div>
         {% endif %}
       </div>
       {% endif %}
-
+  
 
       {% if trade_signal.take_profit_visible %}
       <div class="section">
@@ -188,7 +200,7 @@
       <div class="section">
         <div class="section-name take-profit-name">Take Profit</div>
         {% if user.is_authenticated %}
-        <div class="section-value take-profit-value">{{ trade_signal.take_profit|floatformat:"-4" }}</div>
+        <div class="section-value take-profit-value">{{ trade_signal.take_profit|floatformat:"-4"}}</div>
         {% else %}
         <div class="section-value entry-price-premium">Premium</div>
         {% endif %}
@@ -203,14 +215,14 @@
       {% if user.is_authenticated %}
       <div class="trade-button">
         <a href="{% url 'payment' %}">
-        <button class="trade-btn">Trade Now</button>
+        <button class="trade-butn">Trade Now</button>
     </a>
       </div>
       {% else %}
       {% if trade_signal.trade_now_visible %}
       <div class="trade-button">
         <a href="{% url 'payment' %}">
-        <button class="trade-btn">Trade Now</button>
+        <button class="trade-butn">Trade Now</button>
     </a>
       </div>
       {% else %}
@@ -227,10 +239,11 @@
   </div>
 
   <!--Cryptocurrency signals-->
-  <h4 class="h4-signal">Cryptocurrency Signals</h4>
-<div class="trade-signals-container">
+  <div id="crypto-signals-container" class="trade-signals-container">
+    <h4 class="h4-signal">Cryptocurrency Signals</h4>
   {% for trade_signal in crypto_signals %}
     <div class="trade-signal">
+      <div class="column">
       <div class="signal-meta">
         <div class="timestamp">
           {{ trade_signal.created_at|date:'m-d H:i:s' }} (UTC)
@@ -246,6 +259,7 @@
         <div class="action-sell">SELL</div>
         {% endif %}
       </div>
+    </div>
       <div class="close-button">
         {% if trade_signal.active %}
         <button class="active-btn">ACTIVE</button>
@@ -305,6 +319,7 @@
         {% endif %}
       </div>
       {% endif %}
+      
 
   
 
@@ -314,14 +329,14 @@
       {% if user.is_authenticated %}
       <div class="trade-button">
         <a href="{% url 'payment' %}">
-        <button class="trade-btn">Trade Now</button>
+        <button class="trade-butn">Trade Now</button>
     </a>
       </div>
       {% else %}
       {% if trade_signal.trade_now_visible %}
       <div class="trade-button">
         <a href="{% url 'payment' %}">
-        <button class="trade-btn">Trade Now</button>
+        <button class="trade-butn">Trade Now</button>
     </a>
       </div>
       {% else %}
@@ -333,7 +348,29 @@
       {% endif %}
       {% endif %}
     </div>
-    {% include 'crypto.html' %}
+   
     {% endfor %}
   </div>
+  <script>
+    function showCryptoSignals() {
+      document.getElementById('crypto-signals-container').style.display = 'block';
+      document.getElementById('stock-signals-container').style.display = 'none';
+      document.getElementById('forex-signals-container').style.display = 'none';
+    }
+    
+    function showStockSignals() {
+      document.getElementById('crypto-signals-container').style.display = 'none';
+      document.getElementById('stock-signals-container').style.display = 'block';
+      document.getElementById('forex-signals-container').style.display = 'none';
+      
+    }
+    function showForexSignals() {
+      document.getElementById('forex-signals-container').style.display = 'block';
+      document.getElementById('stock-signals-container').style.display = 'none';
+      document.getElementById('crypto-signals-container').style.display = 'none';
+    }
+    </script>
+    
+
+
 {% endblock %}
