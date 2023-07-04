@@ -11,7 +11,7 @@
 
 <div id="forex-signals-container" class="trade-signals-container">
   <h4 class="h4-signal">Forex Signals</h4>
-  {% for trade_signal in forex_signals %}
+  {% for trade_signal in forex_signals reversed %}
     <div class="trade-signal">
       <div class="column">
       <div class="signal-meta">
@@ -126,7 +126,7 @@
   <!--Stock signals-->
   <div id="stock-signals-container" class="trade-signals-container">
   <h4 class="h4-signal">Stock Signals</h4>
-  {% for trade_signal in stock_signals %}
+  {% for trade_signal in stock_signals reversed %}
     <div class="trade-signal">
       <div class="column">
       <div class="signal-meta">
@@ -241,7 +241,7 @@
   <!--Cryptocurrency signals-->
   <div id="crypto-signals-container" class="trade-signals-container">
     <h4 class="h4-signal">Cryptocurrency Signals</h4>
-  {% for trade_signal in crypto_signals %}
+  {% for trade_signal in crypto_signals reversed %}
     <div class="trade-signal">
       <div class="column">
       <div class="signal-meta">

@@ -116,8 +116,10 @@
     border: none;
     font-weight: 800;
     border-radius: 5px;
-    height: 25px;
-    width: 35px;
+  height: 25px;
+    height: 35px;
+    width: 75px;
+    margin-left: 2px;
     
   }
 .trade-butn{
@@ -127,6 +129,8 @@
   border: none;
   background-color: #F0F0F0;
   margin-top: 12px;
+  margin-left: 2px;
+  
 
 
 }
@@ -152,7 +156,7 @@
     height: 35px;
     width: 75px;
     margin-top: 12px;
-    margin-left: 5px;
+    margin-left: 2px;
   }
    
   .entry-price-value {
@@ -162,6 +166,7 @@
     padding: 4px;
     width: 70px;
     font-size: 10px;
+    margin-right: 1px;
   }
   .entry-price-premium{
     margin-top: 5px;
@@ -191,6 +196,7 @@
     width: 70px;
     font-size: 10px;
     color: blue;
+    margin-right: 1px;
   }
   .take-profit-value {
     margin-top: 5px;
@@ -199,6 +205,8 @@
     padding: 4px;
     width: 70px;
     font-size: 10px;
+    margin-right: 1px;
+    margin-left: 1px;
   }
   .stop-loss-name::after {
     font-size: 12px;
