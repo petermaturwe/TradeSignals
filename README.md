@@ -1,3 +1,2 @@
 # TradeSignals
-created BY 'PETER ORIOKI MATURWE' a software developer and a computer vison engineer.The application requires a license from the author for public and private use.
-the application is a trade signal app which allows users to view and trade in the live market
+This application is designed to provide traders with high-quality trading signals across forex and cryptocurrency markets, helping them make profitable trades. It also offers a comprehensive forex course to enhance trading skills.
